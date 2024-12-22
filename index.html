@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeVent</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .story-actions {
+      margin-top: 1rem;
+    }
+
+    .like-button, .reply-button {
+      display: inline-block;
+      margin-right: 0.5rem;
+      padding: 0.5rem 1rem;
+      color: #fff;
+      background: #BACABC;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .like-button:hover, .reply-button:hover {
+      background: #A0B0A2;
+    }
+
+    .logo img {
+      width: 200px; /* Adjust the width as needed */
+      height: auto; /* Maintain aspect ratio */
+    }
+
+    .footer-logo img {
+      width: 100px; /* Adjust the width as needed */
+      height: auto; /* Maintain aspect ratio */
+      display: block;
+      margin: 10px auto; /* Center the logo and add some margin */
+    }
+
+    .reactions {
+      display: flex;
+      gap: 0.25rem; /* Adjust the gap to make the spaces between reactions smaller */
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .reaction-button {
+      background: none;
+      border: none;
+      font-size: 1rem; /* Adjust the font size to make the buttons smaller */
+      padding: 0.25rem; /* Adjust the padding to make the buttons smaller */
+      cursor: pointer;
+    }
+
+    .reaction-count {
+      font-size: 0.875rem; /* Adjust the font size to make the counts smaller */
+      margin-left: 0.25rem; /* Add a small margin to the left of the count */
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">
+      <img src="2.png" alt="paxana logo" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">home</a></li>
+      <li><a href="#vent">vent anonymously</a></li>
+      <li><a href="#browse">browse stories</a></li>
+      <li><a href="#resources">resources</a></li>
+      <li><a href="#about">about</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    </div>
+    <h1>welcome to paxana</h1>
+    <p>a safe space to share your thoughts and find support.</p>
+    <a href="#vent" class="button">start venting</a>
+    <a href="#browse" class="button secondary">browse stories</a>
+  </section>
+
+  <!-- Vent Anonymously Section -->
+  <section id="vent" class="vent-section">
+    <h2>vent anonymously</h2>
+    <p>share what's on your mind. your words can help you and others feel less alone.</p>
+    <form id="vent-form">
+      <textarea id="vent-text" placeholder="what's on your mind?" rows="5" required></textarea>
+      <select id="vent-category">
+        <option value="" disabled selected>Choose a category</option>
+        <option value="stress">stress</option>
+        <option value="relationships">relationships</option>
+        <option value="school">school</option>
+        <option value="home">home</option>
+        <option value="other">other</option>
+      </select>
+      <button type="submit" class="button">submit</button>
+    </form>
+    <p class="disclaimer">this is not a crisis service. if you need immediate help, please contact a hotline or 911.</p>
+  </section>
+
+  <!-- Filter Stories Section -->
+  <section id="filter" class="filter-section">
+    <h2>filter stories</h2>
+    <select id="filter-category">
+      <option value="all">All Categories</option>
+      <option value="stress">Stress</option>
+      <option value="relationships">Relationships</option>
+      <option value="school">School</option>
+      <option value="home">Home</option>
+      <option value="other">Other</option>
+    </select>
+  </section>
+
+  <!-- Trending Stories Section -->
+  <section id="trending" class="trending-section">
+    <h2>trending stories</h2>
+    <div id="trending-stories">
+      <!-- Trending stories will be dynamically inserted here -->
+    </div>
+  </section>
+
+  <!-- Browse Stories Section -->
+  <section id="browse" class="browse-section">
+    <h2>browse stories</h2>
+    <div id="browse-stories">
+      <!-- Existing stories will be dynamically inserted here -->
+      <div class="story" data-likes="10" data-replies="2" data-category="school">
+        <h3>anonymous</h3>
+        <p>i’ve been feeling really overwhelmed with school lately...</p>
+        <span class="tag">#school</span>
+        <div class="story-actions">
+          <button class="like-button">Like</button>
+          <span class="like-count">10 likes</span>
+          <button class="reply-button">Reply</button>
+          <span class="reply-count">2 replies</span>
+          <div class="reactions">
+            <button class="reaction-button" data-reaction="👍">👍</button>
+            <span class="reaction-count" data-reaction="👍">0</span>
+            <button class="reaction-button" data-reaction="❤️">❤️</button>
+            <span class="reaction-count" data-reaction="❤️">0</span>
+            <button class="reaction-button" data-reaction="😂">😂</button>
+            <span class="reaction-count" data-reaction="😂">0</span>
+            <button class="reaction-button" data-reaction="😢">😢</button>
+            <span class="reaction-count" data-reaction="😢">0</span>
+          </div>
+        </div>
+        <div class="replies">
+          <h4>Replies</h4>
+          <div class="reply">
+            <p>Me too! Hang in there.</p>
+          </div>
+          <div class="reply">
+            <p>It gets better, trust me.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section id="resources" class="resources-section">
+    <h2>resources</h2>
+    <ul>
+      <li><strong>Suicide Prevention Lifeline (U.S.):</strong> 988</li>
+      <li><strong>7 Cups of Tea:</strong> <a href="https://www.7cups.com" target="_blank">free emotional support</a></li>
+      <li><strong>Calm App:</strong> <a href="https://www.calm.com" target="_blank">meditation and stress relief</a></li>
+    </ul>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <h2>about paxana</h2>
+    <p>paxana was created to provide a safe and anonymous space where people can share their feelings, find connection, and access mental health resources.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 paxana. all rights reserved.</p>
+    <div class="footer-logo">
+      <img src="1.png" alt="paxana logo" />
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const stories = document.querySelectorAll('.story');
+      const trendingContainer = document.getElementById('trending-stories');
+      const browseContainer = document.getElementById('browse-stories');
+      const ventForm = document.getElementById('vent-form');
+      const filterCategory = document.getElementById('filter-category');
+
+      // Convert NodeList to array and sort by likes
+      const sortedStories = Array.from(stories).sort((a, b) => {
+        return b.getAttribute('data-likes') - a.getAttribute('data-likes');
+      });
+
+      // Get top 3 most liked stories
+      const topStories = sortedStories.slice(0, 3);
+
+      // Append top stories to the trending section
+      topStories.forEach(story => {
+        trendingContainer.appendChild(story.cloneNode(true));
+      });
+
+      // Append all stories to the browse section
+      sortedStories.forEach(story => {
+        browseContainer.appendChild(story.cloneNode(true));
+      });
+
+      // Add event listeners for like buttons
+      document.querySelectorAll('.like-button').forEach(button => {
+        button.addEventListener('click', function() {
+          const story = this.closest('.story');
+          const likeCountSpan = story.querySelector('.like-count');
+          let likeCount = parseInt(likeCountSpan.textContent.split(' ')[0]);
+          likeCount++;
+          likeCountSpan.textContent = `${likeCount} likes`;
+          story.setAttribute('data-likes', likeCount);
+        });
+      });
+
+      // Add event listeners for reply buttons
+      document.querySelectorAll('.reply-button').forEach(button => {
+        button.addEventListener('click', function() {
+          const story = this.closest('.story');
+          const replyText = prompt('Enter your reply:');
+          if (replyText) {
+            const replyDiv = document.createElement('div');
+            replyDiv.classList.add('reply');
+            replyDiv.innerHTML = `<p>${replyText}</p>`;
+            story.querySelector('.replies').appendChild(replyDiv);
+
+            // Update reply count
+            const replyCountSpan = story.querySelector('.reply-count');
+            const replyCount = parseInt(replyCountSpan.textContent.split(' ')[0]) + 1;
+            replyCountSpan.textContent = `${replyCount} replies`;
+          }
+        });
+      });
+
+      // Add event listeners for reaction buttons
+      document.querySelectorAll('.reaction-button').forEach(button => {
+        button.addEventListener('click', function() {
+          const story = this.closest('.story');
+          const reaction = this.getAttribute('data-reaction');
+          const reactionCountSpan = story.querySelector(`.reaction-count[data-reaction="${reaction}"]`);
+          let reactionCount = parseInt(reactionCountSpan.textContent);
+          reactionCount++;
+          reactionCountSpan.textContent = reactionCount;
+        });
+      });
+
+      // Handle form submission
+      ventForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const ventText = document.getElementById('vent-text').value;
+        const ventCategory = document.getElementById('vent-category').value;
+
+        // Create new story element
+        const newStory = document.createElement('div');
+        newStory.classList.add('story');
+        newStory.setAttribute('data-likes', '0');
+        newStory.setAttribute('data-replies', '0');
+        newStory.setAttribute('data-category', ventCategory);
+        newStory.innerHTML = `
+          <h3>anonymous</h3>
+          <p>${ventText}</p>
+          <span class="tag">#${ventCategory}</span>
+          <div class="story-actions">
+            <button class="like-button">Like</button>
+            <span class="like-count">0 likes</span>
+            <button class="reply-button">Reply</button>
+            <span class="reply-count">0 replies</span>
+            <div class="reactions">
+              <button class="reaction-button" data-reaction="👍">👍</button>
+              <span class="reaction-count" data-reaction="👍">0</span>
+              <button class="reaction-button" data-reaction="❤️">❤️</button>
+              <span class="reaction-count" data-reaction="❤️">0</span>
+              <button class="reaction-button" data-reaction="😂">😂</button>
+              <span class="reaction-count" data-reaction="😂">0</span>
+              <button class="reaction-button" data-reaction="😢">😢</button>
+              <span class="reaction-count" data-reaction="😢">0</span>
+            </div>
+          </div>
+          <div class="replies">
+            <h4>Replies</h4>
+          </div>
+        `;
+
+        // Append new story to browse section
+        browseContainer.appendChild(newStory);
+
+        // Clear form
+        ventForm.reset();
+
+        // Add event listener for the new like button
+        newStory.querySelector('.like-button').addEventListener('click', function() {
+          const likeCountSpan = newStory.querySelector('.like-count');
+          let likeCount = parseInt(likeCountSpan.textContent.split(' ')[0]);
+          likeCount++;
+          likeCountSpan.textContent = `${likeCount} likes`;
+          newStory.setAttribute('data-likes', likeCount);
+        });
+
+        // Add event listener for the new reply button
+        newStory.querySelector('.reply-button').addEventListener('click', function() {
+          const replyText = prompt('Enter your reply:');
+          if (replyText) {
+            const replyDiv = document.createElement('div');
+            replyDiv.classList.add('reply');
+            replyDiv.innerHTML = `<p>${replyText}</p>`;
+            newStory.querySelector('.replies').appendChild(replyDiv);
+
+            // Update reply count
+            const replyCountSpan = newStory.querySelector('.reply-count');
+            const replyCount = parseInt(replyCountSpan.textContent.split(' ')[0]) + 1;
+            replyCountSpan.textContent = `${replyCount} replies`;
+          }
+        });
+
+        // Add event listeners for the new reaction buttons
+        newStory.querySelectorAll('.reaction-button').forEach(button => {
+          button.addEventListener('click', function() {
+            const reaction = this.getAttribute('data-reaction');
+            const reactionCountSpan = newStory.querySelector(`.reaction-count[data-reaction="${reaction}"]`);
+            let reactionCount = parseInt(reactionCountSpan.textContent);
+            reactionCount++;
+            reactionCountSpan.textContent = reactionCount;
+          });
+        });
+      });
+
+      // Handle filtering
+      filterCategory.addEventListener('change', function() {
+        const selectedCategory = this.value;
+        const stories = document.querySelectorAll('.story');
+
+        stories.forEach(story => {
+          const storyCategory = story.getAttribute('data-category');
+          if (selectedCategory === 'all' || storyCategory === selectedCategory) {
+            story.style.display = 'block';
+          } else {
+            story.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
