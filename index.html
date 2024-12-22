@@ -38,19 +38,10 @@
       margin: 10px auto; /* Center the logo and add some margin */
     }
 
-    .reactions {
-      display: flex;
-      gap: 0.25rem; /* Adjust the gap to make the spaces between reactions smaller */
-      align-items: center;
-      margin-top: 0.5rem;
-    }
-
-    .reaction-button {
-      background: none;
-      border: none;
-      font-size: 1rem; /* Adjust the font size to make the buttons smaller */
-      padding: 0.25rem; /* Adjust the padding to make the buttons smaller */
-      cursor: pointer;
+    .replies {
+      margin-top: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid #BACABC;
     }
 
     .reaction-count {
@@ -97,6 +88,12 @@
         <option value="home">home</option>
         <option value="other">other</option>
       </select>
+      <select id="support-type">
+        <option value="" disabled selected>Choose the type of support</option>
+        <option value="just-listen">just listen</option>
+        <option value="ask-for-advice">ask for advice</option>
+        <option value="get-motivation">get motivation</option>
+      </select>
       <button type="submit" class="button">submit</button>
     </form>
     <p class="disclaimer">this is not a crisis service. if you need immediate help, please contact a hotline or 911.</p>
@@ -132,6 +129,7 @@
         <h3>anonymous</h3>
         <p>i’ve been feeling really overwhelmed with school lately...</p>
         <span class="tag">#school</span>
+        <span class="support-type">Support: just listen</span>
         <div class="story-actions">
           <button class="like-button">Like</button>
           <span class="like-count">10 likes</span>
@@ -142,8 +140,8 @@
             <span class="reaction-count" data-reaction="👍">0</span>
             <button class="reaction-button" data-reaction="❤️">❤️</button>
             <span class="reaction-count" data-reaction="❤️">0</span>
-            <button class="reaction-button" data-reaction="😂">😂</button>
-            <span class="reaction-count" data-reaction="😂">0</span>
+            <button class="reaction-button" data-reaction="💔">💔</button>
+            <span class="reaction-count" data-reaction="💔">0</span>
             <button class="reaction-button" data-reaction="😢">😢</button>
             <span class="reaction-count" data-reaction="😢">0</span>
           </div>
@@ -259,6 +257,7 @@
         event.preventDefault();
         const ventText = document.getElementById('vent-text').value;
         const ventCategory = document.getElementById('vent-category').value;
+        const supportType = document.getElementById('support-type').value;
 
         // Create new story element
         const newStory = document.createElement('div');
@@ -270,6 +269,7 @@
           <h3>anonymous</h3>
           <p>${ventText}</p>
           <span class="tag">#${ventCategory}</span>
+          <span class="support-type">Support: ${supportType.replace('-', ' ')}</span>
           <div class="story-actions">
             <button class="like-button">Like</button>
             <span class="like-count">0 likes</span>
@@ -280,8 +280,8 @@
               <span class="reaction-count" data-reaction="👍">0</span>
               <button class="reaction-button" data-reaction="❤️">❤️</button>
               <span class="reaction-count" data-reaction="❤️">0</span>
-              <button class="reaction-button" data-reaction="😂">😂</button>
-              <span class="reaction-count" data-reaction="😂">0</span>
+              <button class="reaction-button" data-reaction="💔">💔</button>
+              <span class="reaction-count" data-reaction="💔">0</span>
               <button class="reaction-button" data-reaction="😢">😢</button>
               <span class="reaction-count" data-reaction="😢">0</span>
             </div>
